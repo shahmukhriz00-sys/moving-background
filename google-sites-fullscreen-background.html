@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Sites Fullscreen Background</title>
+<style>
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  min-height:100%;
+  overflow:hidden;
+}
+
+body{
+  background:#08111f;
+  font-family:Arial,sans-serif;
+}
+
+.background{
+  position:relative;
+  width:100%;
+  height:100vh;
+  min-height:100%;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(99,102,241,.28),transparent 32%),
+    radial-gradient(circle at 80% 70%,rgba(6,182,212,.24),transparent 34%),
+    linear-gradient(135deg,#08111f 0%,#111827 50%,#0b1730 100%);
+}
+
+/* Soft moving light */
+.light{
+  position:absolute;
+  width:45vw;
+  height:45vw;
+  max-width:600px;
+  max-height:600px;
+  min-width:250px;
+  min-height:250px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.45;
+  will-change:transform;
+}
+
+.light.one{
+  background:#6366f1;
+  top:-18%;
+  left:-12%;
+  animation:floatOne 16s ease-in-out infinite alternate;
+}
+
+.light.two{
+  background:#06b6d4;
+  right:-15%;
+  top:25%;
+  animation:floatTwo 19s ease-in-out infinite alternate;
+}
+
+.light.three{
+  background:#8b5cf6;
+  left:30%;
+  bottom:-25%;
+  animation:floatThree 22s ease-in-out infinite alternate;
+}
+
+/* Small floating particles */
+.particle{
+  position:absolute;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 0 10px rgba(255,255,255,.35);
+  animation:particleMove linear infinite;
+}
+
+.p1{left:10%;top:80%;animation-duration:12s}
+.p2{left:25%;top:65%;animation-duration:17s}
+.p3{left:42%;top:90%;animation-duration:14s}
+.p4{left:58%;top:70%;animation-duration:19s}
+.p5{left:72%;top:85%;animation-duration:15s}
+.p6{left:88%;top:55%;animation-duration:18s}
+.p7{left:35%;top:30%;animation-duration:21s}
+.p8{left:80%;top:20%;animation-duration:13s}
+
+@keyframes floatOne{
+  from{transform:translate(0,0) scale(1)}
+  to{transform:translate(18vw,12vh) scale(1.15)}
+}
+
+@keyframes floatTwo{
+  from{transform:translate(0,0) scale(1)}
+  to{transform:translate(-16vw,18vh) scale(1.2)}
+}
+
+@keyframes floatThree{
+  from{transform:translate(0,0) scale(1)}
+  to{transform:translate(12vw,-15vh) scale(.9)}
+}
+
+@keyframes particleMove{
+  0%{transform:translateY(10vh);opacity:0}
+  15%{opacity:.6}
+  85%{opacity:.6}
+  100%{transform:translateY(-110vh);opacity:0}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .light,.particle{animation:none}
+}
+
+@media(max-width:600px){
+  .light{filter:blur(55px)}
+}
+</style>
+</head>
+
+<body>
+<div class="background" aria-hidden="true">
+  <div class="light one"></div>
+  <div class="light two"></div>
+  <div class="light three"></div>
+
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+  <div class="particle p4"></div>
+  <div class="particle p5"></div>
+  <div class="particle p6"></div>
+  <div class="particle p7"></div>
+  <div class="particle p8"></div>
+</div>
+</body>
+</html>
