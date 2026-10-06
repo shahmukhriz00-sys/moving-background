@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving Background</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+.background{
+  position:relative;width:100%;height:100%;
+  overflow:hidden;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+.blob{
+  position:absolute;border-radius:50%;
+  filter:blur(70px);opacity:.65;
+  animation:move 14s infinite alternate ease-in-out;
+}
+.blob1{
+  width:300px;height:300px;
+  background:#6366f1;
+  top:-100px;left:-80px;
+}
+.blob2{
+  width:350px;height:350px;
+  background:#06b6d4;
+  right:-100px;top:20%;
+  animation-duration:17s;
+}
+.blob3{
+  width:260px;height:260px;
+  background:#a855f7;
+  bottom:-90px;left:35%;
+  animation-duration:20s;
+}
+@keyframes move{
+  0%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(100px,60px) scale(1.2)}
+  100%{transform:translate(-60px,120px) scale(.9)}
+}
+</style>
+</head>
+<body>
+<div class="background">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+</body>
+</html>
